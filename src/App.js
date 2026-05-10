@@ -178,7 +178,7 @@ function App() {
             zIndex: 100,
           }}
         >
-          <h2 style={{ color: "#00b894" }}>منتدى الهوية الإماراتية 🇦🇪</h2>
+          <h2 style={{ color: "#00b894" }}>منتدى الهوية الإماراتية </h2>
 
           <button
             onClick={() => setSelectedSection(null)}
