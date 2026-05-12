@@ -303,6 +303,7 @@ date: new Date().toLocaleString("ar-EG"),
             )}
 
             <button
+type="button"
               onClick={addPost}
               style={{
                 marginTop: "20px",
