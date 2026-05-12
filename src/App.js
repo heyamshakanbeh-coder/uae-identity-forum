@@ -219,8 +219,7 @@ date: new Date().toLocaleString("ar-EG"),
     return (
       <>
   <style>{styles}</style>
-      <>
-<style>{styles}</style>
+      
       <div
         style={{
           background:
