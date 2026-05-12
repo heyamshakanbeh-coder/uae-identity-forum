@@ -90,13 +90,13 @@ setPosts(
     .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))
 );};
 
-  useEffect(() => {
-  loadCounts();
-
+ useEffect(() => {
   if (selectedSection) {
     loadPosts(selectedSection.id);
   }
-}, [selectedSection]);
+
+  loadCounts();
+}, []);
 
   const handlePaste = (e) => {
     const items = e.clipboardData.items;
