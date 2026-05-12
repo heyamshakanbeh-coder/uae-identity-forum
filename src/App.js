@@ -87,7 +87,7 @@ setPosts(
       ...docItem.data(),
       id: docItem.id,
     }))
-    .sort((a, b) => b.createdAt - a.createdAt)
+    .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))
 );};
 
   useEffect(() => {
@@ -132,6 +132,7 @@ date: new Date().toLocaleString("ar-EG"),
     setImage("");
 
   await loadPosts(selectedSection.id);
+    await loadCounts();
 window.location.reload();
   };
 
