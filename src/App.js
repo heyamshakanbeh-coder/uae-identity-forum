@@ -21,7 +21,39 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const styles = `
+@keyframes fly {
+  0% {
+    transform: translateX(-150px) translateY(0px) rotate(0deg);
+  }
 
+  25% {
+    transform: translateX(250px) translateY(30px) rotate(8deg);
+  }
+
+  50% {
+    transform: translateX(700px) translateY(-20px) rotate(-6deg);
+  }
+
+  75% {
+    transform: translateX(1100px) translateY(25px) rotate(10deg);
+  }
+
+  100% {
+    transform: translateX(1600px) translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes stars {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 1000px 500px;
+  }
+}
+`;
 function App() {
   const sections = [
     {
@@ -185,6 +217,8 @@ date: new Date().toLocaleString("ar-EG"),
 
   if (selectedSection) {
     return (
+      <>
+<style>{styles}</style>
       <div
         style={{
           background:
@@ -626,29 +660,5 @@ type="button"
     </div>
   );
 }
-<style>
-{`
-@keyframes fly {
-  0% {
-    transform: translateX(0px) translateY(0px) rotate(0deg);
-  }
 
-  25% {
-    transform: translateX(300px) translateY(40px) rotate(8deg);
-  }
-
-  50% {
-    transform: translateX(700px) translateY(-20px) rotate(-6deg);
-  }
-
-  75% {
-    transform: translateX(1000px) translateY(30px) rotate(10deg);
-  }
-
-  100% {
-    transform: translateX(1400px) translateY(0px) rotate(0deg);
-  }
-}
-`}
-</style>
 export default App;
