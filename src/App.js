@@ -48,6 +48,22 @@ function App() {
 
   const [selectedSection, setSelectedSection] = useState(null);
   const [posts, setPosts] = useState([]);
+  const [postsCount, setPostsCount] = useState({});
+
+useEffect(() => {
+  const loadCounts = async () => {
+    let counts = {};
+
+    for (let section of sections) {
+      const data = await getDocs(collection(db, section.id));
+      counts[section.id] = data.docs.length;
+    }
+
+    setPostsCount(counts);
+  };
+
+  loadCounts();
+}, []);
   const [content, setContent] = useState("");
   const [image, setImage] = useState("");
   const [commentInputs, setCommentInputs] = useState({});
