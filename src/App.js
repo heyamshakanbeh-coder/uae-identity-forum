@@ -56,14 +56,14 @@ function App() {
 
   const loadPosts = async (sectionId) => {
     const data = await getDocs(collection(db, sectionId));
-
-    setPosts(
-      data.docs.map((docItem) => ({
-        ...docItem.data(),
-        id: docItem.id,
-      }))
-    );
-  };
+setPosts(
+  data.docs
+    .map((docItem) => ({
+      ...docItem.data(),
+      id: docItem.id,
+    }))
+    .sort((a, b) => b.createdAt - a.createdAt)
+);};
 
   useEffect(() => {
     if (selectedSection) {
@@ -97,6 +97,8 @@ function App() {
       image,
       likes: 0,
       comments: [],
+      createdAt: Date.now(),
+date: new Date().toLocaleString("ar-EG"),
     });
 
     setContent("");
@@ -496,7 +498,7 @@ function App() {
             fontSize: "50px",
           }}
         >
-          منتدى الهوية الإماراتية 🇦🇪
+          منتدى الهوية الإماراتية 
         </h1>
 
         <button
