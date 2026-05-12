@@ -120,7 +120,8 @@ date: new Date().toLocaleString("ar-EG"),
     setContent("");
     setImage("");
 
-    loadPosts(selectedSection.id);
+  await loadPosts(selectedSection.id);
+window.location.reload();
   };
 
   const likePost = async (post) => {
