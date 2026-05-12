@@ -218,6 +218,8 @@ date: new Date().toLocaleString("ar-EG"),
   if (selectedSection) {
     return (
       <>
+  <style>{styles}</style>
+      <>
 <style>{styles}</style>
       <div
         style={{
@@ -544,6 +546,7 @@ type="button"
           ))}
         </div>
       </div>
+</>
     );
   }
 
