@@ -233,6 +233,7 @@ date: new Date().toLocaleString("ar-EG"),
             backgroundPosition: "center",
             height: "320px",
             position: "relative",
+            overflow: "hidden",
           }}
         >
           <div
@@ -244,7 +245,21 @@ date: new Date().toLocaleString("ar-EG"),
               alignItems: "center",
               justifyContent: "center",
             }}
-          >
+>
+          <div
+  style={{
+    position: "absolute",
+    width: "90px",
+    height: "90px",
+    backgroundImage:
+      "url('https://cdn-icons-png.flaticon.com/512/3212/3212608.png')",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    top: "40px",
+    left: "-120px",
+    animation: "fly 12s linear infinite",
+  }}
+/>
             <h1
               style={{
                 color: "white",
@@ -611,5 +626,29 @@ type="button"
     </div>
   );
 }
+<style>
+{`
+@keyframes fly {
+  0% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
 
+  25% {
+    transform: translateX(300px) translateY(40px) rotate(8deg);
+  }
+
+  50% {
+    transform: translateX(700px) translateY(-20px) rotate(-6deg);
+  }
+
+  75% {
+    transform: translateX(1000px) translateY(30px) rotate(10deg);
+  }
+
+  100% {
+    transform: translateX(1400px) translateY(0px) rotate(0deg);
+  }
+}
+`}
+</style>
 export default App;
