@@ -69,7 +69,16 @@ useEffect(() => {
   const [commentInputs, setCommentInputs] = useState({});
   const [editingPost, setEditingPost] = useState(null);
   const [editContent, setEditContent] = useState("");
+const loadCounts = async () => {
+  let counts = {};
 
+  for (let section of sections) {
+    const data = await getDocs(collection(db, section.id));
+    counts[section.id] = data.docs.length;
+  }
+
+  setPostsCount(counts);
+};
   const loadPosts = async (sectionId) => {
     const data = await getDocs(collection(db, sectionId));
 setPosts(
@@ -82,10 +91,12 @@ setPosts(
 );};
 
   useEffect(() => {
-    if (selectedSection) {
-      loadPosts(selectedSection.id);
-    }
-  }, [selectedSection]);
+  loadCounts();
+
+  if (selectedSection) {
+    loadPosts(selectedSection.id);
+  }
+}, [selectedSection]);
 
   const handlePaste = (e) => {
     const items = e.clipboardData.items;
@@ -589,7 +600,7 @@ window.location.reload();
                     fontWeight: "bold",
                   }}
                 >
-                  📌 عدد المشاركات: {posts.filter((p) => p.section === section.id).length}
+                  📌 عدد المشاركات: {postsCount[section.id] || 0}
                 </div>
               </div>
             </div>
