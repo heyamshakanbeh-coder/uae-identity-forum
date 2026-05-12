@@ -572,7 +572,7 @@ date: new Date().toLocaleString("ar-EG"),
                     fontWeight: "bold",
                   }}
                 >
-                  📌 عدد المشاركات: {posts.length}
+                  📌 عدد المشاركات: {posts.filter((p) => p.section === section.id).length}
                 </div>
               </div>
             </div>
