@@ -280,7 +280,7 @@ date: new Date().toLocaleString("ar-EG"),
               justifyContent: "center",
             }}
 >
-          <div
+  <div
   style={{
     position: "absolute",
     width: "90px",
@@ -294,6 +294,7 @@ date: new Date().toLocaleString("ar-EG"),
     animation: "fly 12s linear infinite",
   }}
 />
+        
             <h1
               style={{
                 color: "white",
