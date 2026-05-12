@@ -133,7 +133,6 @@ date: new Date().toLocaleString("ar-EG"),
 
   await loadPosts(selectedSection.id);
     await loadCounts();
-window.location.reload();
   };
 
   const likePost = async (post) => {
