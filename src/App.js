@@ -220,13 +220,15 @@ date: new Date().toLocaleString("ar-EG"),
       <>
   <style>{styles}</style>
       
-      <div
+     <div
         style={{
           background:
             "linear-gradient(135deg, #eef5ff 0%, #f7fbff 40%, #ecfff7 100%)",
           minHeight: "100vh",
           direction: "rtl",
           fontFamily: "sans-serif",
+          overflowY: "auto", // هذا هو السطر الذي أضفته لك
+          display: "block",
         }}
       >
         <div
